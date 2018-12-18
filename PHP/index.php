@@ -11,7 +11,7 @@
     <?php
         include 'cnx.php';
         // écrire la requete
-        $sql = $cnx->prepare("select nom,prenom from controleur");
+        $sql = $cnx->prepare("select nom,prenom,id from controleur");
         // on l'execute
         $sql->execute();
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
