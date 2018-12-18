@@ -14,7 +14,7 @@
     <p>Dernier releve<p><input type="TEXT" name="dernierReleve" value="<?php echo $_GET['paramd'] ?>" /></p></p>
     </form>
 
-    <form action="page2.php?param='.$ligne['nom'].'&param2='.$ligne['prenom'].'&param3='.$ligne['id'].'" method="post">
+    <form action="page2.php?param='.$ligne['nom'].'&param2='.$ligne['prenom'].'&param3='.$ligne['id'].'" method="get">
     <label> Nouveau releve </label>
     <br>
     <input name="nouveaureleve" type="text">
