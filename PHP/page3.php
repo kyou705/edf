@@ -14,7 +14,7 @@
     <p>Dernier releve<p><input type="TEXT" name="dernierReleve" value="<?php echo $_GET['paramd'] ?>" /></p></p>
     </form>
 
-    <form action="page4.php" method="post">
+    <form action="page2.php?param='.$ligne['nom'].'&param2='.$ligne['prenom'].'&param3='.$ligne['id'].'" method="post">
     <label> Nouveau releve </label>
     <br>
     <input name="nouveaureleve" type="text">
@@ -25,11 +25,15 @@
 <?php
         include 'cnx.php';
         
+        $nouveau = $_POST['nouveaureleve'];
+
+        $sql = $cnx->prepare("update client SET dernierReleve='$nouveau'");
+        $sql->execute();
+   
+        echo $nouveau
+
+
         
-        // on l'execute
-        
-        
-       
     ?>
 
   
