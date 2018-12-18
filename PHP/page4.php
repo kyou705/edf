@@ -8,18 +8,17 @@
 </head>
 <body>
 
+<form method="post" action="page5.php"> 
+Prénom : <input type="text" name="prenom" size="12"> 
+<input type="submit" value="OK"> 
+</form>
 
-
-
-<?php
-        include 'cnx.php';
-
-       
+    <?php
+     
+     include 'cnx.php';
+     $prenom = $_POST['nouveaureleve']; 
+     print("<center>Bonjour $prenom </center>"); 
     ?>
-
-    
 
 </body>
 </html>
-
-
