@@ -11,16 +11,18 @@
     <?php
         include 'cnx.php';
         // écrire la requete
-        $sql = $cnx->prepare("select CodeEquipe,NomEquipe from equipe");
+        $sql = $cnx->prepare("select nom,prenom from controleur");
         // on l'execute
         $sql->execute();
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
             echo "<table>";
             echo "<tr>";
-            echo "<td>".$ligne['NomEquipe']."</td>";
+            echo "<td>".$ligne['nom']."</td>";
             echo "<td>";
-            echo '<a href="page2.php?param='.$ligne['CodeEquipe'].'&param2='.$ligne['NomEquipe'].'"> Tous les coureurs</a>';
+            echo "<td>".$ligne['prenom']."</td>";
+            echo "<td>";
+            echo '<a href="page2.php?param='.$ligne['nom'].'&param2='.$ligne['prenom'].'"> Tous les clients</a>';
             echo "</td>";
             echo "</tr>";
             echo "</table>";
