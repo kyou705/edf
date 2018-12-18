@@ -10,7 +10,7 @@
 <?php
         include 'cnx.php';
         //écrire la requete
-        $sql = $cnx->prepare("select nom,prenom from client");
+        $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve,idcontroleur from client where idcontroleur ='".$_GET['param3']."'");
         // on l'execute
         $sql->execute();
         echo "Liste des clients du contrôleur ";
@@ -21,8 +21,7 @@
         {
             echo "<table>";
             echo "<tr>";
-            echo "<td>".$ligne['nom']." ".$ligne['prenom']."</td>";
-            echo "<td>";
+            echo "<td>".$ligne['nom']." ".$ligne['prenom']." ".$ligne['ancienReleve']." ".$ligne['dernierReleve']."</td>";
             //echo '<a href="page3.php?parama='.$ligne['CodePays'].'&paramb='.$ligne['NumCoureur'].'"> Statistiques</a>';
             echo "</td>";
             echo "</tr>";
