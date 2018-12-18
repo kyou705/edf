@@ -17,12 +17,20 @@
         echo $_GET['param'];
         echo " - ";
         echo $_GET['param2'];
+        echo "<br>";
+        echo "<br>";
+        echo '<a href="index.php"> Home </a>';
+        echo "<br>";
+        echo "<br>";
+       
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
+         
             echo "<table>";
             echo "<tr>";
             echo "<td>".$ligne['nom']." ".$ligne['prenom']." ".$ligne['ancienReleve']." ".$ligne['dernierReleve']."</td>";
-            //echo '<a href="page3.php?parama='.$ligne['CodePays'].'&paramb='.$ligne['NumCoureur'].'"> Statistiques</a>';
+            echo "<td>";
+            echo '<a href="page3.php?parama='.$ligne['nom'].'&paramb='.$ligne['prenom'].'&paramc='.$ligne['ancienReleve'].'&paramd='.$ligne['dernierReleve'].'"> Nouveau releve </a>';
             echo "</td>";
             echo "</tr>";
             echo "</table>";
