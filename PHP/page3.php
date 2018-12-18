@@ -22,16 +22,12 @@
     <input type="submit" value ="Inserer">
     </form>
 
-
-
-
-
 <?php
         include 'cnx.php';
-        $prenom = $_POST['nouveaureleve']; 
-        $sql = $cnx->prepare("update client SET ancienReleve='5'");
+        
+        
         // on l'execute
-        $sql->execute();
+        
         
        
     ?>

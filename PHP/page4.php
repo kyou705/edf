@@ -17,7 +17,8 @@ Prénom : <input type="text" name="prenom" size="12">
      
      include 'cnx.php';
      $prenom = $_POST['nouveaureleve']; 
-     print("<center>Bonjour $prenom </center>"); 
+     $sql = $cnx->prepare("update client SET ancienReleve='888' where nom ='Jeanson' ");
+     $sql->execute();
     ?>
 
 </body>
