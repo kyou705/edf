@@ -22,7 +22,7 @@
             echo "<td>";
             echo "<td>".$ligne['prenom']."</td>";
             echo "<td>";
-            echo '<a href="page2.php?param='.$ligne['nom'].'&param2='.$ligne['prenom'].'&param3='.$ligne['id'].'"> Tous les clients</a>';
+            echo '<a href="page2.php?param3='.$ligne['id'].'"> Tous les clients</a>';
             echo "</td>";
             echo "</tr>";
             echo "</table>";

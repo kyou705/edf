@@ -9,28 +9,51 @@
 <body>
 <?php
         include 'cnx.php';
+        
         //écrire la requete
-        $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve,idcontroleur from client where idcontroleur ='".$_GET['param3']."'");
+        $sql = $cnx->prepare("select client.nom,client.prenom,ancienReleve,dernierReleve,idcontroleur,identifiant,id from client,controleur where client.idcontroleur=controleur.id and idcontroleur ='".$_GET['param3']."'");
         // on l'execute
         $sql->execute();
-        echo "Liste des clients du contrôleur ";
-        echo $_GET['param'];
-        echo " - ";
-        echo $_GET['param2'];
-        echo "<br>";
+
+        
+        
+        echo "Liste des clients du contrôleur "; 
         echo "<br>";
         echo '<a href="index.php"> Home </a>';
         echo "<br>";
         echo "<br>";
-      
+        $id=$_GET['param3'];
+        echo $id;
+        
+
+        if(isset($_POST['nouveaureleve']))
+            { 
+            $id=$_POST['id'];
+            $releve=$_POST['nouveaureleve'];
+            $identifiant=$_POST['identifiant'];
+            $sql1 = $cnx->prepare("update client SET dernierReleve='$releve' where identifiant='$identifiant'");
+            $sql1->execute();
+            
+
+            
+           // header('Location: http://localhost/irismaster2/edf/edf/PHP/page2.php?param3='.$ligne['id'].'');
+           // exit();
+            }
+        
+
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
-         
             echo "<table>";
             echo "<tr>";
-            echo "<td>".$ligne['nom']." ".$ligne['prenom']." ".$ligne['ancienReleve']." ".$ligne['dernierReleve']."</td>";
+            echo "<td>".$ligne['nom']."</td>";
             echo "<td>";
-            echo '<a href="page3.php?parama='.$ligne['nom'].'&paramb='.$ligne['prenom'].'&paramc='.$ligne['ancienReleve'].'&paramd='.$ligne['dernierReleve'].'"> Nouveau releve </a>';
+            echo "<td>".$ligne['prenom']."</td>";
+            echo "<td>";
+            echo "<td>".$ligne['ancienReleve']."</td>";
+            echo "<td>";
+            echo "<td>".$ligne['dernierReleve']."</td>";
+            echo "<td>";
+            echo '<a href="page3.php?nom='.$ligne['nom'].'&prenom='.$ligne['prenom'].'&ancienreleve='.$ligne['ancienReleve'].'&dernierreleve='.$ligne['dernierReleve'].'&identifiant='.$ligne['identifiant'].'&id='.$ligne['id'].'"> Nouveau releve </a>';
             echo "</td>";
             echo "</tr>";
             echo "</table>";
