@@ -10,6 +10,9 @@
     
     <?php
         include 'cnx.php';
+        echo "Liste des contrôleurs";
+        echo "<br>"; 
+        echo "<br>"; 
         // écrire la requete
         $sql = $cnx->prepare("select nom,prenom,id from controleur");
         // on l'execute

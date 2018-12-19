@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<?php
+    
+
+    ?>
 
 
-<form action="page2.php?param3=" method="POST">
+<form action='page2.php?param3=<?php echo $_GET['id']; ?>' method="POST">
     <label> Nouveau releve </label>
     
     <p>Nom du client<p><input type="TEXT" name="nom" value="<?php echo $_GET['nom'] ?>" /readonly></p></p>
@@ -23,17 +27,7 @@
     <input type="submit" value ="Inserer">
     </form>
 
-
-<?php
-        include 'cnx.php';
- 
-
-            
-         
-        
-    
-    ?>
-
+   
   
 
 </body>
