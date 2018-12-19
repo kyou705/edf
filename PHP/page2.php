@@ -22,8 +22,7 @@
         echo '<a href="index.php"> Home </a>';
         echo "<br>";
         echo "<br>";
-
-    
+      
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
          
