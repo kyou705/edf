@@ -16,25 +16,22 @@
         $sql->execute();
 
         
-        
         echo "Liste des clients du contrôleur "; 
         echo "<br>";
         echo '<a href="index.php"> Home </a>';
         echo "<br>";
         echo "<br>";
        
-        
-
         if(isset($_POST['nouveaureleve']))
             { 
             $id=$_POST['id'];
             $releve=$_POST['nouveaureleve'];
             $identifiant=$_POST['identifiant'];
-            $sql1 = $cnx->prepare("update client SET dernierReleve='$releve' where identifiant='$identifiant'");
+            $sql1 = $cnx->prepare("update client SET ancienReleve=dernierReleve,dernierReleve='$releve' where identifiant='$identifiant'");
             $sql1->execute();
+            
             $sql = $cnx->prepare("select client.nom,client.prenom,ancienReleve,dernierReleve,idcontroleur,identifiant,id from client,controleur where client.idcontroleur=controleur.id and idcontroleur ='".$_GET['param3']."'");
-        // on l'execute
-        $sql->execute();
+            $sql->execute();
             foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
             echo "<table>";
